@@ -23,7 +23,7 @@
                             >
                             <ul class="stats widget-inline-list clearfix">
                                 <li class="col-4">
-                                    <span>{{ myProfile.got_view_count }}</span>
+                                    <span>{{ myProfile.got_digg_count }}</span>
                                     <strong>赞</strong>
                                 </li>
                                 <li class="col-4">
@@ -63,7 +63,7 @@
                             >
                             <ul class="stats widget-inline-list clearfix">
                                 <li class="col-4">
-                                    <span>{{ profile.got_view_count }}</span>
+                                    <span>{{ profile.got_digg_count }}</span>
                                     <strong>赞</strong>
                                 </li>
                                 <li class="col-4">
