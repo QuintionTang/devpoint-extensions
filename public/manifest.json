@@ -1,0 +1,39 @@
+{
+    "manifest_version": 2,
+    "name": "DevPoint扩展",
+    "description": "DevPoint扩展",
+    "version": "0.0.2",
+    "browser_action": {
+        "16": "./statics/icons/logo-16.png",
+        "19": "./statics/icons/logo-32.png",
+        "38": "./statics/icons/logo-64.png"
+    },
+    "icons": {
+        "128": "./statics/icons/logo-128.png",
+        "64": "./statics/icons/logo-64.png",
+        "32": "./statics/icons/logo-32.png",
+        "16": "./statics/icons/logo-16.png"
+    },
+    "background": {
+        "persistent": true,
+        "scripts": [
+            "./statics/background.js"
+        ]
+    },
+    "permissions": [
+        "storage",
+        "cookies",
+        "activeTab",
+        "tabs",
+        "notifications",
+        "<all_urls>",
+        "http://*/",
+        "https://*/"
+    ],
+    "offline_enabled": true,
+    "content_security_policy": "script-src 'self' 'unsafe-eval' https://*.juejin.cn ; object-src 'self'",
+    "content_scripts": [],
+    "web_accessible_resources": [
+        "*"
+    ]
+}

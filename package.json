@@ -1,0 +1,76 @@
+{
+  "name": "devpoint-extensions",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DevPoint Vue 扩展",
+  "author": "QuintionTang <QuintionTang@gmail.com>",
+  "scripts": {
+    "chrome": "VUE_APP_VERSION=1.0.0 vue-cli-service build --watch",
+    "serve": "VUE_APP_VERSION=1.0.0 vue-cli-service serve",
+    "build": "VUE_APP_VERSION=1.0.0 vue-cli-service build",
+    "build-demo": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "ant-design-vue": "^1.5.4",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.13.0",
+    "axios-mock-adapter": "^1.18.1",
+    "core-js": "^3.6.5",
+    "eslint-plugin-prettier": "^3.1.4",
+    "lodash": "^4.17.15",
+    "register-service-worker": "^1.7.1",
+    "store": "^2.0.12",
+    "vue": "^2.6.11",
+    "vue-custom-scrollbar": "^1.1.0",
+    "vue-draggable-nested-tree": "^3.0.0-beta2",
+    "vue-i18n": "^8.17.4",
+    "vue-nprogress": "^0.1.5",
+    "vue-page-title": "^1.2.1",
+    "vue-router": "^3.1.6",
+    "vuelayers": "^0.11.23",
+    "vuex": "^3.3.0"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.4.1",
+    "@vue/cli-plugin-eslint": "^4.4.1",
+    "@vue/cli-plugin-pwa": "^4.4.1",
+    "@vue/cli-service": "^4.4.1",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-import": "^1.13.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "eslint-plugin-vue": "^6.2.2",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "lint-staged": "^10.2.0",
+    "node-sass": "^4.14.0",
+    "prettier": "^2.1.2",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuintionTang/devpoint-extensions.git"
+  },
+  "license": "MIT",
+  "lint-staged": {
+    "src/**/*.{js}": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
+}
