@@ -9,7 +9,7 @@ export const SET_PAGER = "setPagination";
 export const SET_READY = "setReady";
 export const SET_ERROR = "setError";
 
-const juejinService = juejinApi();
+const { list, getProfile } = juejinApi();
 const getRank = (list, uid) => {
     const index = list.findIndex((item) => item.user_id === uid);
     return index >= 0 ? index + 1 : -1;
@@ -46,19 +46,21 @@ const getters = {
 
 const actions = {
     [GET_LIST]({ commit, dispatch, state }, payload) {
+        const { uid } = payload;
         commit(SET_PAGER, payload);
         commit(SET_READY, true);
-        juejinService
-            .list(payload)
-            .then((response) => {
-                commit(SET_LIST, response);
-            })
-            .catch((errors) => {
-                commit(SET_ERROR, {
-                    loading: false,
-                    errors: errors,
+        getProfile(uid).then((profile) => {
+            list(payload)
+                .then((response) => {
+                    commit(SET_LIST, { list: response, profile });
+                })
+                .catch((errors) => {
+                    commit(SET_ERROR, {
+                        loading: false,
+                        errors: errors,
+                    });
                 });
-            });
+        });
     },
     [UPDATE_PAGER](context, payload) {
         const { pageSize, current } = payload;
@@ -96,10 +98,10 @@ const mutations = {
             errors: null,
         });
     },
-    [SET_LIST](state, response) {
-        const { data } = response;
+    [SET_LIST](state, { list, profile }) {
+        const { data } = list;
         const ranking = getRank(data, state.uid);
-        const current = ranking >= 0 ? data[ranking - 1] : null;
+        const current = ranking >= 0 ? data[ranking - 1] : profile;
         Object.assign(state, {
             list: data,
             loading: false,

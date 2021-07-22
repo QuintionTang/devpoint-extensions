@@ -5,7 +5,10 @@
                 <div class="col-md-12">
                     <div class="widget profile-widget">
                         <div class="bg-black-op">
-                            <div class="ribbon-box font-w600">
+                            <div
+                                class="ribbon-box font-w600"
+                                v-if="ranking > 0"
+                            >
                                 {{ ranking }}
                             </div>
                             <img
